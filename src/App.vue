@@ -11,12 +11,12 @@
           <div class="menu-item browse">
             <img src="/images/globe.png">
             <p>Browse</p>
-          </div>
+          </div> 
         </router-link>
         <router-link to="/cart">
           <div class="menu-item">
             <img src="/images/love.png">
-            <p>0 items</p>
+            <p> {{numItems}} items</p>
           </div>
         </router-link>
       </div>
@@ -24,6 +24,21 @@
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+    }
+  },
+  computed: {
+    numItems() {
+      return this.$root.$data.cart.length;
+    }
+  },
+}
+</script>
 
 <style>
 * {

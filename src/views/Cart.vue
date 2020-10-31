@@ -1,22 +1,22 @@
 <template>
     <div>
-        <ProductList :products="products" />
+        <CartList :cart="cart" />
     </div>
 </template>
 
 <script>
-import ProductList from "../components/ProductList.vue"
+import CartList from "../components/CartList.vue"
 export default {
   name: 'Cart',
   components: {
-    ProductList
+    CartList
   },
   data() {
     return {
     }
   },
   computed: {
-    products() {
+    cart() {
       return this.$root.$data.cart;
     }
   },
