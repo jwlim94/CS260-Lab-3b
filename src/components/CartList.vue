@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
   <div class="products">
-    <div v-if="numProducts === 0" id="empty-cart">Cart is empty</div>
+    <div v-if="numProducts === 0" classs="empty-cart">Cart is empty</div>
     <div v-else class="product" v-for="product in cart" :key="product.id">
       <div class="info">
         <h1>{{product.name}}</h1>
@@ -10,9 +10,10 @@
       <div class="image">
         <img :src="'/images/products/'+product.image">
       </div>
+      <div class="quantity">Quantity: {{product.quantity}}</div>
       <div class="price">
-        <h2>{{product.price}}</h2>
-        <button @click="removeFromCart(product)" class="auto">Remove</button>
+        <h2>{{product.price}} EA</h2>
+        <button @click="removeFromCart(product)" class="auto">Remove all</button>
       </div>
     </div>
   </div>
@@ -26,14 +27,14 @@ export default {
     cart: Array
   },
   computed: {
-      numProducts() {
-          return this.$root.$data.cart.length;
-      }
+    numProducts() {
+        return this.$root.$data.cart.length;
+    },
   },
   methods: {
-      removeFromCart(product) {
-          this.$root.$data.cart.splice(this.$root.$data.cart.indexOf(product), 1);
-      }
+    removeFromCart(product) {
+        this.$root.$data.cart.splice(this.$root.$data.cart.indexOf(product), 1);
+    },
   }
 }
 </script>
@@ -45,7 +46,7 @@ export default {
   justify-content: center;
 }
 
-#empty-cart {
+.empty-cart {
     font-size: 2em;
     font-weight: bold;
 }
@@ -80,7 +81,7 @@ export default {
   background: #7fd7f4;
   color: #000;
   padding: 10px 30px;
-  height: 80px;
+  height: 100px;
 }
 
 .info h1 {
@@ -96,6 +97,10 @@ export default {
   font-size: 10px;
 }
 
+.quantity {
+    color: #f26868;
+    font-weight: bold;
+}
 
 .price {
   display: flex;

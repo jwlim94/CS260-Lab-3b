@@ -26,7 +26,19 @@ export default {
   },
   methods: {
       addToCart(product) {
-          this.$root.$data.cart.push(product);
+          let exist = false;
+          this.$root.$data.cart.forEach(item => {
+            if (item.id == product.id) {
+                exist = true;
+            } 
+          });
+          if (!exist) {
+            product.quantity = 1;
+            this.$root.$data.cart.push(product);
+          }
+          else {
+            product.quantity++;
+          }
       }
   }
 }
@@ -69,7 +81,7 @@ export default {
   background: #F2921D;
   color: #000;
   padding: 10px 30px;
-  height: 80px;
+  height: 100px;
 }
 
 .info h1 {
