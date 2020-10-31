@@ -22,6 +22,12 @@
       </div>
     </div>
     <router-view/>
+    <div class="footer-container">
+      <div class="footer">
+        ALL CONTENT COPYRIGHT 2020 MOTHER_EARTH
+        <a href="https://github.com/BYU-CS-260-Winter-2020/lab-3b-grocery-store-jwlim94"><img src="/images/github.png"></a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -92,5 +98,19 @@ body {
 
 .browse {
   margin-right: 50px;
+}
+
+.footer-container {
+  background-color: white;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  padding-left: 550px;
+}
+
+.footer img {
+  width: 30px;
+  height: 30px;
 }
 </style>
